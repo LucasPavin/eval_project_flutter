@@ -3,7 +3,7 @@ import './main.dart';
 
 class Recipe {
   String name;
-  Map<String, int> cost; // Utilisation d'une Map pour stocker le coût
+  Map<String, int> cost;
   String gameplay;
   String type;
   String description;
@@ -15,12 +15,11 @@ class Recipe {
 class RecipePage extends StatelessWidget {
   final List<Recipe> recipes = [
     Recipe('Hache', {"Bois": 2, "Minerai de fer brut": 2}, 'Récolter le bois 3 par 3', "Outils", 'Description de la recette 1'),
-    Recipe('Hache', {"Bois": 2, "Minerai de fer brut": 2}, 'Récolter le bois 3 par 3', "Outils", 'Description de la recette 1'),
-    Recipe('Hache', {"Bois": 2, "Iron rod": 2}, 'Récolter le bois 3 par 3', "Outils", 'Description de la recette 1'),
-    Recipe('Hache', {"Bois": 2, "Iron rod": 2}, 'Récolter le bois 3 par 3', "Outils", 'Description de la recette 1'),
-    Recipe('Hache', {"Bois": 2, "Iron rod": 2}, 'Récolter le bois 3 par 3', "Outils", 'Description de la recette 1'),
-
-    // Ajoutez d'autres recettes selon vos besoins
+    Recipe('Pioche', {"Bois": 2, "Tige en métal": 2}, 'Récolter les minerais 5 par 5 (5 par click)', "Outils", 'Description de la recette 1'),
+    Recipe('Lingot de fer', {"Bois": 2, "Iron rod": 2}, 'Récolter le bois 3 par 3', "Outils", 'Description de la recette 1'),
+    Recipe('Plaque de fer', {"Bois": 2, "Iron rod": 2}, 'Récolter le bois 3 par 3', "Outils", 'Description de la recette 1'),
+    Recipe('Lingot de cuivre', {"Bois": 2, "Iron rod": 2}, 'Récolter le bois 3 par 3', "Outils", 'Description de la recette 1'),
+    Recipe('Tige en métal', {"Bois": 2, "Iron rod": 2}, 'Récolter le bois 3 par 3', "Outils", 'Description de la recette 1'),
   ];
 
   @override
@@ -79,12 +78,9 @@ class RecipeWidget extends StatelessWidget {
   }
 
   String _formatCost(Map<String, int>? cost) {
-    // Handle null cost gracefully
     if (cost == null) {
       return 'N/A';
     }
-
-    // Convertit la Map en une liste de chaînes "nom x quantité" et les joint avec une virgule
     return cost.entries.map((entry) => '${entry.key} x ${entry.value}').join(', ');
   }
 }

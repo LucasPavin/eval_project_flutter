@@ -35,7 +35,7 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  // Initialisation d'une liste avec les différentes éressources
+  // Liste des différentes ressources
   List<Resource> resources = [
     Resource('Bois', 0, "Du bois brut", Color(0xFF967969)),
     Resource('Minerai de fer brut', 0, "Du minerai de fer brut", Color(0xFFced4da)),
@@ -96,11 +96,14 @@ class HomePageState extends State<HomePage> {
                 Icon(Icons.inventory),
               ],
             ),
+
+            // On redirige l'utilisateur vers la page des innventaires.
+
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => RecipePage()),
-              );
+            //   Navigator.push(
+            //     context,
+            //     MaterialPageRoute(builder: (context) => InventoryPage()),
+            //   );
             },
           ),
         ],
@@ -110,7 +113,7 @@ class HomePageState extends State<HomePage> {
           crossAxisCount: 4,
         ),
         itemBuilder: (context, index) {
-          return ResourceWidget(resource: resources[index], updateState: _updateState);
+          return ResourceWidget(resource: resources[index], updateState: _updateState, resources: resources);
         },
         itemCount: resources.length,
       ),
